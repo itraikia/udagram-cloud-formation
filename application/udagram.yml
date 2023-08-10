@@ -20,12 +20,15 @@ Resources:
         Fn::ImportValue:
           !Sub "${ProjectName}-${EnvName}-VPCID"
       SecurityGroupIngress:
-      - IpProtocol: tcp
+        IpProtocol: 'tcp'
         FromPort: 80
         ToPort: 80
-        CidrIp:
-          Fn::ImportValue:
-            !Sub "${ProjectName}-${EnvName}-VPCCIDR"
+        CidrIp: '0.0.0.0/0'
+      SecurityGroupEgress:
+        IpProtocol: 'tcp'
+        FromPort: 0
+        ToPort: 65535
+        CidrIp: '0.0.0.0/0'
 
   WebServerSecGroup:
     Type: AWS::EC2::SecurityGroup
@@ -35,17 +38,10 @@ Resources:
         Fn::ImportValue:
           !Sub "${ProjectName}-${EnvName}-VPCID"
       SecurityGroupIngress:
-      - IpProtocol: tcp
+      - IpProtocol: 'tcp'
         FromPort: 80
         ToPort: 80
         SourceSecurityGroupId: !Ref LBSecGroup
-      SecurityGroupEgress:
-      - IpProtocol: tcp
-        FromPort: 0
-        ToPort: 65535
-        CidrIp:
-          Fn::ImportValue:
-            !Sub "${ProjectName}-${EnvName}-VPCCIDR"
 
   WebAppLaunchTemplate:
     Type: AWS::EC2::LaunchTemplate

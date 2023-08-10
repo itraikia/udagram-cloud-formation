@@ -59,3 +59,6 @@ there are 4 scripts :
 IMPORTANT : 
 1. the stack-name should be unique
 2. the order is important to follow, create first the network infrastructre then the static infrastructure and in last the application infrastructure.
+
+# Output URL
+the URL value is desplayed in the outputs of udagram stack, the key is WebsiteURL
