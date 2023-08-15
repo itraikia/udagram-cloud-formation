@@ -61,4 +61,4 @@ IMPORTANT :
 2. the order is important to follow, create first the network infrastructre then the static infrastructure and in last the application infrastructure.
 
 # Output URL
-the URL value is desplayed in the outputs of udagram stack, the key is WebsiteURL
+the URL value is desplayed in the outputs of udagram stack, the key is WebsiteURL, for this stack this is the URL : http://udagr-webap-fkoy7kgn0am4-809098053.us-east-1.elb.amazonaws.com/
