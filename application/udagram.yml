@@ -54,8 +54,9 @@ Resources:
             sudo apt-get update -y
             sudo apt-get install nginx -y
             sudo service nginx start
-            aws s3 cp s3://${EnvName}-s3-bucket-1/index.html /var/www/html/index.html
+            sudo wget -O /var/www/html/index.nginx-debian.html https://stagging-s3-bucket-1.s3.amazonaws.com/index.html
         ImageId: ami-0af9d24bd5539d7af
+        KeyName: last-ec2
         SecurityGroupIds:
           - !Ref WebServerSecGroup
         InstanceType: t2.micro
